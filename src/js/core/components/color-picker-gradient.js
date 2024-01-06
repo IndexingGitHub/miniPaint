@@ -128,6 +128,8 @@ var Helper = new Helper_class();
         secondaryPick.style.background = Helper.hsvToHex(hsv.h, 1, 1);
         secondaryPickHandle.style.left = ((hsv.s) * 100) + '%';
         secondaryPickHandle.style.top = ((1 - hsv.v) * 100) + '%';
+
+        console.log(hsv)
     };
 
     $.fn.uiColorPickerGradient = function(behavior, ...args) {
