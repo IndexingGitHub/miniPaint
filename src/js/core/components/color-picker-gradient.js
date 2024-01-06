@@ -70,11 +70,14 @@ var Helper = new Helper_class();
         const xRatio = (clientX - mouseDownSecondaryPickRect.left) / (mouseDownSecondaryPickRect.right - mouseDownSecondaryPickRect.left);
         const yRatio = (clientY - mouseDownSecondaryPickRect.top) / (mouseDownSecondaryPickRect.bottom - mouseDownSecondaryPickRect.top);
 
-        set_hsv($el, {
+        const newHSV = {
             h: hsv.h,
             s: xRatio,
             v: 1 - yRatio
-        });
+        }
+        
+        set_hsv($el, newHSV);
+        console.log(newHSV)
         
         $el.trigger('input');
 
@@ -128,8 +131,6 @@ var Helper = new Helper_class();
         secondaryPick.style.background = Helper.hsvToHex(hsv.h, 1, 1);
         secondaryPickHandle.style.left = ((hsv.s) * 100) + '%';
         secondaryPickHandle.style.top = ((1 - hsv.v) * 100) + '%';
-
-        console.log(Helper.hsvToHex(hsv.h, 1, 1))
     };
 
     $.fn.uiColorPickerGradient = function(behavior, ...args) {
